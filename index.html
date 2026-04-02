@@ -942,7 +942,7 @@
           </div>
 
           <a href="https://asp.jcity.co.jp/FORM/?userid=spispi2017&formid=861" target="_blank" rel="noopener"
-            class="block w-full bg-ink text-white py-8 text-center text-[11px] uppercase tracking-[0.5em] font-bold hover:bg-hl transition-all duration-700 shadow-xl">
+            class="block w-full bg-pink-300 text-ink py-8 text-center text-[14px] uppercase tracking-[0.5em] font-bold hover:bg-pink-400 transition-all duration-700 shadow-xl">
             お申込みはこちら
           </a>
         </div>
@@ -993,31 +993,4 @@
   const iOpen=document.getElementById('ico-open');
   const iClose=document.getElementById('ico-close');
   let mOpen=false;
-  mBtn.addEventListener('click',()=>{
-    mOpen=!mOpen;
-    mob.classList.toggle('open',mOpen);
-    iOpen.classList.toggle('hidden',mOpen);
-    iClose.classList.toggle('hidden',!mOpen);
-  });
-  function closeMenu(){
-    mOpen=false;mob.classList.remove('open');
-    iOpen.classList.remove('hidden');iClose.classList.add('hidden');
-  }
-
-  // Intersection Observer
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:0.1,rootMargin:'-40px 0px'});
-  document.querySelectorAll('.anim-up,.anim-right').forEach(el=>io.observe(el));
-
-  // Form
-  function handleSend(e){
-    e.preventDefault();
-    const t=document.getElementById('thanks');
-    t.classList.remove('hidden');
-    e.target.reset();
-    setTimeout(()=>t.classList.add('hidden'),6000);
-  }
-</script>
-</body>
-</html>
+  mBtn.
