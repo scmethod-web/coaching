@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SC® Coaching | 内面から輝く女性リーダーと次世代人材育成</title>
+  <meta name="description" content="心理学・脳科学・量子力学を融合したSC®メソッドによる法人向けコーチング。内面から輝く女性リーダーと継続的に目標達成するチーム作り。" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Serif JP', serif;
+      background: #FDFBF9;
+      color: #121212;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(-50px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .anim-up { opacity: 0; }
+    .anim-right { opacity: 0; }
+    .anim-up.in    { animation: fadeUp   1s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .anim-right.in { animation: slideRight 1.2s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .d1 { animation-delay: 0.1s !important; }
+    .d2 { animation-delay: 0.25s !important; }
+    .d3 { animation-delay: 0.4s !important; }
+    .d4 { animation-delay: 0.55s !important; }
+
+    /* Nav */
+    nav.scrolled {
+      background: rgba(255,255,255,0.88) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+      box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+    }
+
+    /* Timeline */
+    .tl { position:relative; padding-left:1.75rem; border-left:1px solid #E5D9D9; margin-bottom:1.5rem; }
+    .tl::before { content:''; position:absolute; left:-5px; top:7px; width:9px; height:9px; background:#9E7B7B; border-radius:50%; }
+
+    /* Card */
+    .prog-card { transition: border-color 0.5s; }
+    .prog-card:hover { border-color: rgba(158,123,123,0.5); }
+
+    /* Mobile menu */
+    #mob-menu { transition: opacity 0.3s, visibility 0.3s; opacity:0; visibility:hidden; }
+    #mob-menu.open { opacity:1; visibility:visible; }
+
+    /* Label */
+    .lbl { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.5em; font-weight:700; color:#9E7B7B; }
+
+    /* Serif font */
+    .serif { font-family:'Playfair Display','Noto Serif JP',Georgia,serif; }
+
+    /* Writing vertical */
+    .writing-v { writing-mode:vertical-rl; transform:rotate(180deg); }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink:'#121212', muted:'#8A847F', accent:'#E5D9D9', hl:'#9E7B7B', paper:'#FDFBF9'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-paper text-ink">
+
+<!-- ====== NAV ====== -->
+<nav id="nav" class="fixed top-0 w-full z-50 py-8 px-4 lg:px-16 transition-all duration-700">
+  <div class="max-w-[1440px] mx-auto flex justify-between items-center">
+    <div class="cursor-pointer serif text-2xl lg:text-3xl font-bold tracking-tighter uppercase"
+         onclick="window.scrollTo({top:0,behavior:'smooth'})">SC® Coaching</div>
+
+    <div class="hidden md:flex items-center gap-12">
+      <button onclick="goto('method')"       class="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-hl transition-colors">Method</button>
+      <button onclick="goto('achievements')" class="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-hl transition-colors">Achievements</button>
+      <button onclick="goto('programs')"     class="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-hl transition-colors">Programs</button>
+      <button onclick="goto('profile')"      class="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-hl transition-colors">Profile</button>
+      <button onclick="goto('testimonials')" class="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-hl transition-colors">Voices</button>
+      <button onclick="goto('contact')"
+        class="bg-ink text-white px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-hl transition-all duration-500">
+        Consultation
+      </button>
+    </div>
+
+    <button id="mBtn" class="md:hidden p-2" aria-label="menu">
+      <svg id="ico-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="ico-close" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mob-menu" class="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-10">
+  <button onclick="goto('method');closeMenu()"       class="serif text-3xl italic hover:text-hl transition-colors">Method</button>
+  <button onclick="goto('achievements');closeMenu()" class="serif text-3xl italic hover:text-hl transition-colors">Achievements</button>
+  <button onclick="goto('programs');closeMenu()"     class="serif text-3xl italic hover:text-hl transition-colors">Programs</button>
+  <button onclick="goto('profile');closeMenu()"      class="serif text-3xl italic hover:text-hl transition-colors">Profile</button>
+  <button onclick="goto('testimonials');closeMenu()" class="serif text-3xl italic hover:text-hl transition-colors">Voices</button>
+  <button onclick="goto('contact');closeMenu()"      class="serif text-3xl italic hover:text-hl transition-colors">Contact</button>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="relative pt-32 pb-16 lg:pt-72 lg:pb-48 px-4 lg:px-16 max-w-[1440px] mx-auto overflow-hidden">
+  <div class="absolute left-6 lg:left-10 top-1/2 hidden lg:block" style="transform:translateY(-50%)">
+    <span class="writing-v text-[10px] uppercase tracking-[0.6em] font-bold text-muted/30 whitespace-nowrap">
+      ESTABLISHED 2017 • TOKYO • NEW YORK • WORLDWIDE
+    </span>
+  </div>
+
+  <div class="grid grid-cols-12 gap-8 items-start">
+    <div class="col-span-12 lg:col-span-8 z-10 anim-right in">
+      <div class="flex items-center gap-6 mb-8 lg:mb-10">
+        <div class="w-12 h-px bg-hl"></div>
+        <span class="lbl">Next Generation Leadership</span>
+      </div>
+      <h1 class="serif font-bold leading-[0.9] tracking-tighter mb-10 lg:mb-16"
+          style="font-size:clamp(4rem,14vw,140px)">
+        Inner <em class="italic font-normal text-hl">Radiance</em>,<br>
+        Outer <em class="italic font-normal">Impact.</em>
+      </h1>
+      <div class="w-full lg:max-w-lg lg:ml-32">
+        <p class="text-lg lg:text-xl text-muted leading-relaxed mb-10 font-light">
+          内面から輝く女性リーダーと、継続的に目標達成するチーム作り。<br class="hidden lg:block">
+          心理学・脳科学・量子力学を融合したSC®メソッドが、あなたの潜在能力を解き放ちます。
+        </p>
+        <button onclick="goto('contact')"
+          class="group flex items-center gap-6 text-[11px] uppercase tracking-[0.4em] font-bold">
+          Book a Consultation
+          <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-ink/10 flex items-center justify-center group-hover:bg-ink group-hover:text-white transition-all duration-700">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-span-12 lg:col-span-4 mt-12 lg:mt-0 relative anim-up in d2">
+      <div class="-mx-4 lg:mx-0 overflow-hidden bg-accent relative group shadow-2xl" style="aspect-ratio:4/5">
+        <img src="images/sakurai-profile.png" alt="桜井美帆 SC®メソッド創始者"
+          class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-[3000ms]"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="absolute inset-0 items-center justify-center text-center p-6 hidden" style="background:#E5D9D9;display:none">
+          <div class="text-hl"><p class="serif text-2xl italic mb-2">桜井美帆</p><p class="text-xs">SC®メソッド創始者</p></div>
+        </div>
+        <div class="absolute inset-0" style="background:rgba(158,123,123,0.1);mix-blend-mode:multiply"></div>
+      </div>
+      <div class="absolute -bottom-8 -right-4 lg:-bottom-12 lg:-right-12">
+        <div class="bg-ink text-white p-8 lg:p-12 flex flex-col justify-center items-center text-center shadow-2xl" style="aspect-ratio:1">
+          <span class="serif text-4xl lg:text-6xl italic mb-1">2.2k</span>
+          <span class="text-[8px] uppercase tracking-[0.2em] font-bold leading-tight">Graduates<br>Worldwide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== METHOD ====== -->
+<section id="method" class="py-40 lg:py-72 px-4 lg:px-16 bg-white overflow-hidden">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-12 gap-10 lg:gap-24">
+
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-40">
+          <span class="lbl block mb-10">Our Philosophy</span>
+          <h2 class="serif text-5xl lg:text-6xl font-bold leading-[1.1] mb-16">
+            The <em class="italic font-normal">SC® Method</em>
+          </h2>
+          <div class="space-y-8 text-xl text-muted leading-relaxed font-light">
+            <p>心理学、脳科学、量子力学の融合。<br>それは単なるスキルアップではなく、<br>「魂・心・体・感情・意識・思考」の<br>6つのバランスを整える旅です。</p>
+            <p class="text-sm italic border-l-2 border-accent pl-8 py-2 text-muted">
+              "True leadership begins with the mastery of one's own internal landscape."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-12 lg:col-span-8 space-y-24 lg:space-y-48">
+
+        <!-- 01 Psychology -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center anim-up">
+          <div>
+            <div class="overflow-hidden shadow-lg bg-paper" style="aspect-ratio:16/9">
+              <img src="images/hero.png.png"
+                alt="Psychology" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <span class="serif text-4xl italic text-hl">01</span>
+              <h3 class="serif text-3xl font-bold">Psychology</h3>
+            </div>
+            <p class="text-base text-muted leading-relaxed font-light">心理学的手法による行動変容。自己肯定感の根源的な再構築。深層心理にアプローチし、揺るぎない自信を育みます。</p>
+            <div class="w-12 h-px bg-accent"></div>
+          </div>
+        </div>
+
+        <!-- 02 Neuroscience -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center anim-up">
+          <div class="md:order-2">
+            <div class="overflow-hidden shadow-lg bg-paper" style="aspect-ratio:16/9">
+              <img src="images/hero.png.png"
+                alt="Neuroscience" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+            </div>
+          </div>
+          <div class="space-y-6 md:order-1">
+            <div class="flex items-center gap-4">
+              <span class="serif text-4xl italic text-hl">02</span>
+              <h3 class="serif text-3xl font-bold">Neuroscience</h3>
+            </div>
+            <p class="text-base text-muted leading-relaxed font-light">脳科学的アプローチによる思考癖の解放。神経可塑性を利用し、成功への回路を脳内に構築。ストレス耐性と決断力を高めます。</p>
+            <div class="w-12 h-px bg-accent"></div>
+          </div>
+        </div>
+
+        <!-- 03 Quantum Physics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center anim-up">
+          <div>
+            <div class="overflow-hidden shadow-lg bg-paper" style="aspect-ratio:16/9">
+              <img src="images/hero.png.png"
+                alt="Quantum Physics" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <span class="serif text-4xl italic text-hl">03</span>
+              <h3 class="serif text-3xl font-bold">Quantum Physics</h3>
+            </div>
+            <p class="text-base text-muted leading-relaxed font-light">量子力学の応用による潜在意識のブロック解除。エネルギーの最適化を行い、望む未来を引き寄せる周波数を整えます。</p>
+            <div class="w-12 h-px bg-accent"></div>
+          </div>
+        </div>
+
+        <!-- 04 Holistic Balance (SVG) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center anim-up">
+          <div class="md:order-2">
+            <div class="flex items-center justify-center bg-white shadow-lg p-6" style="aspect-ratio:1">
+              <!-- Holistic 6-element SVG -->
+              <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:360px">
+                <!-- Outer rings -->
+                <circle cx="250" cy="250" r="238" fill="none" stroke="#D4A843" stroke-width="2.5"/>
+                <circle cx="250" cy="250" r="218" fill="none" stroke="#D4A843" stroke-width="1"/>
+
+                <!-- Sacred geometry lines -->
+                <g stroke="#D4A843" stroke-width="0.8" fill="none" opacity="0.55">
+                  <!-- Star of David outer -->
+                  <polygon points="250,62 415,292 85,292"/>
+                  <polygon points="250,438 85,208 415,208"/>
+                  <!-- Hexagon -->
+                  <polygon points="250,120 362,185 362,315 250,380 138,315 138,185"/>
+                  <!-- Cross lines -->
+                  <line x1="250" y1="30" x2="250" y2="470"/>
+                  <line x1="30" y1="250" x2="470" y2="250"/>
+                  <line x1="70" y1="70" x2="430" y2="430"/>
+                  <line x1="430" y1="70" x2="70" y2="430"/>
+                  <!-- Inner circles (flower of life) -->
+                  <circle cx="250" cy="250" r="85"/>
+                  <circle cx="250" cy="165" r="85"/>
+                  <circle cx="250" cy="335" r="85"/>
+                  <circle cx="176" cy="207" r="85"/>
+                  <circle cx="324" cy="207" r="85"/>
+                  <circle cx="176" cy="293" r="85"/>
+                  <circle cx="324" cy="293" r="85"/>
+                </g>
+
+                <!-- Center -->
+                <circle cx="250" cy="250" r="56" fill="white" stroke="#D4A843" stroke-width="2"/>
+                <text x="250" y="244" text-anchor="middle" font-family="'Playfair Display',serif" font-size="15" fill="#D4A843" font-weight="bold">SC®</text>
+                <text x="250" y="263" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="11" fill="#8A847F">Method</text>
+
+                <!-- 魂 Top (purple) -->
+                <circle cx="250" cy="72" r="55" fill="#7B3FA0"/>
+                <text x="250" y="81" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="34" fill="white" font-weight="bold">魂</text>
+
+                <!-- 思考 Top-right (blue) -->
+                <circle cx="393" cy="158" r="55" fill="#2563EB"/>
+                <text x="393" y="167" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="28" fill="white" font-weight="bold">思考</text>
+
+                <!-- 体 Bottom-right (red) -->
+                <circle cx="393" cy="342" r="55" fill="#DC2626"/>
+                <text x="393" y="351" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="34" fill="white" font-weight="bold">体</text>
+
+                <!-- 感情 Bottom (orange) -->
+                <circle cx="250" cy="428" r="55" fill="#EA580C"/>
+                <text x="250" y="437" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="28" fill="white" font-weight="bold">感情</text>
+
+                <!-- 心 Bottom-left (green) -->
+                <circle cx="107" cy="342" r="55" fill="#16A34A"/>
+                <text x="107" y="351" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="34" fill="white" font-weight="bold">心</text>
+
+                <!-- 意識 Top-left (yellow) -->
+                <circle cx="107" cy="158" r="55" fill="#CA8A04"/>
+                <text x="107" y="167" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="28" fill="white" font-weight="bold">意識</text>
+              </svg>
+            </div>
+          </div>
+          <div class="space-y-6 md:order-1">
+            <div class="flex items-center gap-4">
+              <span class="serif text-4xl italic text-hl">04</span>
+              <h3 class="serif text-3xl font-bold">Holistic Balance</h3>
+            </div>
+            <p class="text-base text-muted leading-relaxed font-light">魂・心・体・感情・意識・思考の6つを統合し、自発的に成果を生み出す次世代型リーダーへ。持続可能な成功と、内面的な幸福を両立させます。</p>
+            <div class="w-12 h-px bg-accent"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ACHIEVEMENTS ====== -->
+<section id="achievements" class="py-40 lg:py-72 px-4 lg:px-16 bg-ink text-white overflow-hidden">
+  <div class="max-w-[1440px] mx-auto relative">
+    <div class="absolute top-0 right-0 opacity-[0.03] select-none pointer-events-none overflow-hidden">
+      <span class="serif font-bold italic leading-none" style="font-size:25vw">Global</span>
+    </div>
+
+    <div class="mb-24 lg:mb-40 relative z-10 anim-up">
+      <span class="lbl block mb-10">Global Recognition</span>
+      <h2 class="serif font-bold tracking-tighter leading-[0.8] mb-12" style="font-size:clamp(3.5rem,10vw,10rem)">
+        Proven <br><em class="italic font-normal text-hl">Excellence.</em>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-end relative z-10">
+      <div class="lg:col-span-4 space-y-16 lg:space-y-24">
+        <div class="anim-up">
+          <svg class="text-hl mb-8" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9E7B7B" stroke-width="1">
+            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+          <h4 class="serif text-2xl italic mb-6">東久邇宮文化褒章</h4>
+          <p class="text-sm text-gray-400 font-light leading-loose">世界平和活動の実績が認められ、天皇系3大宮さま賞のひとつ「東久邇宮文化褒章」を受賞。庶民のノーベル賞とも呼ばれる権威ある賞です。</p>
+        </div>
+        <div class="anim-up d1">
+          <svg class="mb-8" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9E7B7B" stroke-width="1">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <h4 class="serif text-2xl italic mb-6">世界から絶賛されたSC®メソッド</h4>
+          <p class="text-sm text-gray-400 font-light leading-loose">ニューヨーク国連本部公式C3サミット('24')、インドの国際経済フォーラム('25')など、SC®メソッドの発表により世界平和への貢献が国際的に認知されています。</p>
+        </div>
+        <div class="anim-up d2">
+          <svg class="mb-8" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9E7B7B" stroke-width="1">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <h4 class="serif text-2xl italic mb-6">国連本部C3サミットなど世界からも認知</h4>
+          <p class="text-sm text-gray-400 font-light leading-loose">2024年、NY国連本部公式C3サミットに登壇。SC®メソッドによる世界平和への貢献が国際的に認知されています。</p>
+        </div>
+        <div class="anim-up d3">
+          <svg class="mb-8" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9E7B7B" stroke-width="1">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <h4 class="serif text-2xl italic mb-6">会員数2,200名超え</h4>
+          <p class="text-sm text-gray-400 font-light leading-loose">SC®メソッドを学んだコーチ・カウンセラーが2,200名を超え、世界で活躍。協会の教育体系の充実と実績の証です。</p>
+        </div>
+        <div class="anim-up d4">
+          <svg class="mb-8" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9E7B7B" stroke-width="1">
+            <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7a3.1 3.1 0 0 1-3.1-3.1zM8 12h8m-4-4v8m5.1-7h-4v1.9h4a3.1 3.1 0 0 1 0 6.2h-4V17h4a5 5 0 0 0 0-10z"/>
+          </svg>
+          <h4 class="serif text-2xl italic mb-6">ワールド チャリティ プロジェクト</h4>
+          <p class="text-sm text-gray-400 font-light leading-loose">SC®協会独自の慈善事業で、2023年より毎年、カンボジアの小学校に遊具を寄贈し、校庭に記念碑を建立。今後の目標は校舎を建てることです。</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8">
+        <div class="relative overflow-hidden mb-16 group shadow-2xl anim-up" style="aspect-ratio:16/10">
+          <img src="images/hero.png.png"
+            alt="Global Summit" class="w-full h-full object-cover opacity-40 grayscale group-hover:scale-110 transition-transform duration-[5000ms]"
+            referrerpolicy="no-referrer">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="serif font-bold italic text-white/10" style="font-size:clamp(5rem,15vw,15rem)">ROI 7x</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 border-t border-white/10 pt-16">
+          <div class="anim-up">
+            <p class="serif italic text-hl mb-4" style="font-size:2.5rem">2,200+</p>
+            <p class="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-bold">Graduates<br>Worldwide</p>
+          </div>
+          <div class="anim-up d1">
+            <p class="serif italic text-hl mb-4" style="font-size:2.5rem">196</p>
+            <p class="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-bold">Countries<br>Reached</p>
+          </div>
+          <div class="anim-up d2">
+            <p class="serif italic text-hl mb-4" style="font-size:2.5rem">25%</p>
+            <p class="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-bold">Profitability<br>Increase</p>
+          </div>
+          <div class="anim-up d3">
+            <p class="serif italic text-hl mb-4" style="font-size:2.5rem">10x</p>
+            <p class="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-bold">Revenue<br>Growth</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROFILE ====== -->
+<section id="profile" class="py-32 lg:py-72 px-4 lg:px-16 bg-white overflow-hidden">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-12 gap-8 lg:gap-32 items-start">
+
+      <!-- Text -->
+      <div class="col-span-12 lg:col-span-6 order-2 lg:order-1 anim-up">
+        <span class="lbl block mb-8 lg:mb-12">The Founder</span>
+        <h2 class="serif font-bold tracking-tighter mb-10 lg:mb-16" style="font-size:clamp(3rem,8vw,8rem);line-height:0.85">
+          Miho <br><em class="italic font-normal text-hl">Sakurai</em>
+        </h2>
+
+        <div class="space-y-5 text-base lg:text-lg text-muted font-light leading-loose max-w-lg">
+          <p class="font-bold text-ink text-base tracking-wide">SC®メソッド創始者 ／ SC®協会代表講師</p>
+          <p>東京都出身。1993年、ハーバード大学サマースクール留学をきっかけに世界の異文化に触れ、人間の無限の可能性を開く力の研究に専念。現在も続く世界遺産巡りは世界45カ国を制覇。芸能人・経営者など1万人以上を鑑定し、書籍を多数出版。</p>
+          <p>心理学、脳科学、量子力学を融合した独自の『SC®メソッド』を世界で初めて体系化。魂・心・体・感情・意識・思考の6つのバランスを整えることで、潜在能力を解放し、リーダーと組織を根本から変革します。</p>
+        </div>
+
+        <blockquote class="serif text-xl lg:text-2xl italic text-ink border-l-4 border-accent pl-6 lg:pl-10 py-4 my-10 lg:my-12">
+          「真のリーダーシップとは、自分自身の内なる声に耳を傾け、潜在能力を解放することから始まります。あなたが輝くことで、組織全体に光が波及していくのです。」
+        </blockquote>
+
+        <!-- Career Timeline -->
+        <h3 class="serif text-2xl font-bold mb-8">Career &amp; Awards</h3>
+        <div>
+          <div class="tl">
+            <p class="lbl mb-1">2005</p>
+            <p class="text-sm font-medium text-ink">NYにて「桜井美帆サロン」をオープン</p>
+          </div>
+          <div class="tl">
+            <p class="lbl mb-1">2010</p>
+            <p class="text-sm font-medium text-ink">AVEXより『究極に癒されるヒーリングCD』リリース</p>
+          </div>
+          <div class="tl">
+            <p class="lbl mb-1">2011</p>
+            <p class="text-sm font-medium text-ink">任天堂DSiより『桜井美帆の幸運の女神セラピー占い』配信</p>
+          </div>
+          <div class="tl">
+            <p class="lbl mb-1">2017</p>
+            <p class="text-sm font-medium text-ink">一般社団法人スピリチュアルコーディネーター協会 設立</p>
+          </div>
+          <div class="tl">
+            <p class="lbl mb-1">2019</p>
+            <p class="text-sm font-medium text-ink">メディチ家プリンセスより「超心理学士」として認定</p>
+            <p class="text-xs text-muted mt-1">ルネサンスを支援したヨーロッパ王家メディチ家による権威ある認定</p>
+          </div>
+          <div class="tl">
+            <p class="lbl mb-1">2021</p>
+            <p class="text-sm font-medium text-ink">🏆 東久邇宮文化褒賞・記念賞 受賞</p>
+          </div>
+          <div class="tl">
+            <p class="lbl mb-1">2023</p>
+            <p class="text-sm font-medium text-ink">🏆 東久邇宮平和賞 受賞</p>
+          </div>
+          <div class="tl">
+            <p class="lbl mb-1">2024</p>
+            <p class="text-sm font-medium text-ink">🎤 NY国連本部 公式C3サミット スピーチ</p>
+            <p class="text-sm font-medium text-ink mt-1">🎬 海外版TEDx スピーチ ／ Forbes 英語・スペイン語版 掲載</p>
+            <p class="text-sm font-medium text-ink mt-1">🎭 カンヌ国際映画祭 レッドカーペット</p>
+          </div>
+          <div class="tl">
+            <p class="lbl mb-1">2025</p>
+            <p class="text-sm font-medium text-ink">🌍 フランス国際ウーマンズデーグローバルサミット 基調講演家認定</p>
+            <p class="text-sm font-medium text-ink mt-1">🌏 インド世界経済フォーラム グローバルリーダー認定</p>
+          </div>
+          <div class="tl" style="border-color:transparent">
+            <p class="lbl mb-1">2026</p>
+            <p class="text-sm font-medium text-ink">🌐 世界経済フォーラム年次総会（ダボス会議）出席</p>
+            <p class="text-sm font-medium text-ink mt-1">📊 メディチタロット クラウドファンディング 2.7億円超達成</p>
+            <p class="text-xs text-muted mt-1">クラウドファンディング史上総合ランキング 第1位</p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-12 lg:mt-16 flex gap-12 lg:gap-16">
+          <div>
+            <p class="serif italic text-hl" style="font-size:3rem">10x</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mt-1">Growth Rate</p>
+          </div>
+          <div>
+            <p class="serif italic text-hl" style="font-size:3rem">45</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mt-1">Countries</p>
+          </div>
+          <div>
+            <p class="serif italic text-hl" style="font-size:3rem">1万+</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mt-1">Clients</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="col-span-12 lg:col-span-6 order-1 lg:order-2 relative anim-up d1">
+        <div class="w-80 h-80 lg:w-96 lg:h-96 bg-accent overflow-hidden relative shadow-2xl flex" style="aspect-ratio:1/1">
+          <img src="images/sakurai-profile.png" alt="桜井美帆 SC®メソッド創始者"
+            class="w-full h-full object-cover object-center"
+            onerror="this.style.display='none';document.getElementById('ph').style.display='flex'" />
+          <div id="ph" class="absolute inset-0 items-center justify-center text-center" style="background:#E5D9D9;display:none">
+            <div class="text-hl"><p class="serif text-2xl italic mb-2">桜井美帆</p><p class="text-xs">SC®メソッド創始者</p></div>
+          </div>
+        </div>
+        <div class="absolute -top-10 -right-10 w-40 h-40 border border-accent hidden lg:block"></div>
+        <div class="absolute bottom-10 -left-10 bg-ink text-white py-4 px-10 hidden lg:block">
+          <span class="text-[10px] uppercase tracking-[0.5em] font-bold">SC® Method Founder</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIRECTOR PROFILE (高崎真生) ====== -->
+<section id="director" class="py-32 lg:py-64 px-4 lg:px-16 bg-paper overflow-hidden">
+  <div class="max-w-[1440px] mx-auto">
+    <!-- Section header -->
+    <div class="mb-20 lg:mb-32 anim-up">
+      <span class="lbl block mb-8">From the Director</span>
+      <h2 class="serif font-bold leading-tight" style="font-size:clamp(2.5rem,5vw,5rem)">
+        代表理事からの<br><em class="italic font-normal text-hl">ご挨拶</em>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-12 gap-10 lg:gap-24 items-center">
+      <!-- Left: Image placeholder -->
+      <div class="col-span-12 lg:col-span-4 anim-up">
+        <div class="relative">
+          <div class="w-72 h-72 lg:w-80 lg:h-80 bg-accent overflow-hidden shadow-xl relative group" style="aspect-ratio:1/1">
+            <img src="images/takasaki-profile.png" alt="高崎真生 代表理事"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-[3000ms]"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="absolute inset-0 w-full h-full flex items-center justify-center hidden" style="background:linear-gradient(135deg,#E5D9D9,#F5F0EE)">
+              <div class="text-center text-hl">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#9E7B7B" stroke-width="1" class="mx-auto mb-4">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <p class="serif text-xl italic mb-1">高崎 真生</p>
+                <p class="text-xs tracking-widest">代表理事</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-ink text-white py-4 px-8 hidden lg:block">
+            <span class="text-[10px] uppercase tracking-[0.5em] font-bold">Representative Director</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Message -->
+      <div class="col-span-12 lg:col-span-8 anim-up d1">
+        <div class="space-y-6 text-base lg:text-lg text-muted font-light leading-loose max-w-2xl">
+          <p class="font-bold text-ink text-base tracking-wide">一般社団法人スピリチュアルコーディネーター協会 代表理事</p>
+
+          <p>2017年の設立以来、SC®メソッドを日本国内に広め、現在はグローバルに展開。<strong class="text-ink">3年間で年商10倍以上の成長</strong>を実現してきました。</p>
+
+          <p>私たちは、組織の変化は「一人ひとりの内面」から始まると考えています。どれだけスキルやノウハウを学んでも、自分自身への信頼や安心感が整っていなければ、本来の力は発揮されません。</p>
+
+          <p>SC®コーチングは、思考を整えるだけの自己啓発ではなく、潜在意識に働きかけながら、その人が想像もできなかった潜在能力を引き出していくプログラムです。</p>
+
+          <p>社員一人ひとりが自分らしく力を発揮できる状態をつくることで、自然とチームの雰囲気が変わり、成果や売上にもつながっていきます。</p>
+
+          <p>精神的にも経済的にも豊かな組織をつくる」その実現に向けて、御社に寄り添いながら伴走できれば嬉しく思います。</p>
+
+          <p class="font-bold text-ink text-base tracking-wide">SC協会代表理事   高崎真生（まき）</p>
+
+          <blockquote class="serif text-xl italic text-ink border-l-4 border-accent pl-6 py-3 my-8">
+            「精神的にも経済的にも豊かな組織をつくる」その実現に向けて、御社に寄り添いながら伴走できれば嬉しく思います。
+          </blockquote>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-12 flex flex-wrap gap-12">
+          <div>
+            <p class="serif italic text-hl" style="font-size:3rem">10x</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mt-1">3年での<br>年商成長率</p>
+          </div>
+          <div>
+            <p class="serif italic text-hl" style="font-size:3rem">2017</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mt-1">設立年</p>
+          </div>
+          <div>
+            <p class="serif italic text-hl" style="font-size:3rem">2,200+</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mt-1">輩出<br>コーチ数</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROGRAMS ====== -->
+<section id="programs" class="py-40 lg:py-72 px-4 lg:px-16 bg-paper">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="flex flex-col lg:flex-row justify-between items-end mb-24 lg:mb-32 gap-10 anim-up">
+      <div>
+        <span class="lbl block mb-8">Exclusive Programs</span>
+        <h2 class="serif font-bold leading-none" style="font-size:clamp(3.5rem,8vw,8rem)">Programs</h2>
+      </div>
+      <p class="text-xl text-muted max-w-sm font-light italic leading-relaxed">
+        貴社のビジョンと課題に合わせ、<br>最適なカスタマイズプランをご提案いたします。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="prog-card bg-white p-8 lg:p-16 border border-accent/30 relative overflow-hidden anim-up">
+        <span class="lbl block mb-10 lg:mb-14">Experience</span>
+        <h3 class="serif text-3xl lg:text-4xl font-bold mb-3 leading-tight">Individual<br>Coaching</h3>
+        <p class="text-base text-pink-500 font-semibold mb-4">経営者・エグゼクティブ コーチング</p>
+        <p class="text-base text-muted leading-relaxed font-light mb-10">リーダー自身の潜在能力を引き出す半年間・24回の完全個別プログラム。内面からの変革をサポートします。</p>
+        <button onclick="goto('contact')" class="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] font-bold group">
+          Inquire Details
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:rotate-90 transition-transform duration-500">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="prog-card bg-white p-8 lg:p-16 border border-accent/30 relative overflow-hidden anim-up d1">
+        <span class="lbl block mb-10 lg:mb-14">Mastery</span>
+        <h3 class="serif text-3xl lg:text-4xl font-bold mb-3 leading-tight">Corporate<br>Training</h3>
+        <p class="text-base text-pink-500 font-semibold mb-4">リーダー研修</p>
+        <p class="text-base text-muted leading-relaxed font-light mb-10">組織全体にSC®メソッドを浸透させる階層別研修。社員30名まで参加可能。心理的安全性の高い自走するチームを構築します。</p>
+        <button onclick="goto('contact')" class="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] font-bold group">
+          Inquire Details
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:rotate-90 transition-transform duration-500">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="prog-card bg-white p-8 lg:p-16 border border-accent/30 relative overflow-hidden anim-up d2">
+        <span class="lbl block mb-10 lg:mb-14">Partnership</span>
+        <h3 class="serif text-3xl lg:text-4xl font-bold mb-3 leading-tight">Strategic<br>Integration</h3>
+        <p class="text-base text-pink-500 font-semibold mb-4">新規事業導入/コストをプロフィットへ</p>
+        <p class="text-base text-muted leading-relaxed font-light mb-10">SC®コーチングの新規事業導入から収益化まで完全サポート。販売ライセンス取得。厚生労働省助成金活用で実質<strong>75%オフ</strong>も可能。</p>
+        <button onclick="goto('contact')" class="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] font-bold group">
+          Inquire Details
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:rotate-90 transition-transform duration-500">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-12 p-6 border border-hl/30 bg-white text-center">
+      <p class="text-sm text-muted font-light">
+        <span class="text-hl font-bold">厚生労働省 リスキリング支援助成金対応</span>
+        ｜ 導入コストを最大75%削減（期間限定）
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIALS ====== -->
+<section id="testimonials" class="py-40 lg:py-72 px-4 lg:px-16 bg-white overflow-hidden">
+  <div class="max-w-[1440px] mx-auto">
+
+    <div class="mb-24 lg:mb-40 anim-up">
+      <span class="lbl block mb-8">Voices of Transformation</span>
+      <h2 class="serif font-bold leading-none" style="font-size:clamp(3rem,7vw,7rem)">
+        体験者の声
+      </h2>
+      <p class="text-xl text-muted font-light mt-6 max-w-xl">
+        SC®メソッドによって人生が変わった女性たちのリアルな声をお届けします。
+      </p>
+    </div>
+
+    <!-- Testimonials grid -->
+      <!-- Testimonial -->
+      <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up">
+        <div class="col-span-12 lg:col-span-3">
+          <div class="bg-accent flex items-center justify-center rounded-full mx-auto lg:mx-0" style="width:80px;height:80px">
+            <span class="serif text-2xl italic text-hl font-bold">Y.T</span>
+          </div>
+          <div class="mt-6 text-center lg:text-left">
+            <p class="font-bold text-ink">鶴見 まい</p>
+            <p class="text-xs text-muted mt-1">iManagement株式会社 代表取締役社長</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-9">
+          <div class="bg-paper p-8 lg:p-12 border border-accent/40 relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-ink"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-white p-5 border border-gray-100">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 block mb-3">Before</span>
+                <p class="text-sm text-muted leading-relaxed">個人の成果は出せても、スタッフの指示待ちが多く、チーム全体としての目標達成が難しかった。マネジメントの正解が分かりませんでした。</p>
+              </div>
+              <div class="bg-white p-5 border border-hl/20">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-hl block mb-3">After</span>
+                <p class="text-sm text-muted leading-relaxed">仲間の潜在能力を信じ、ビジョンを共有し始めたら、チームのステージが変わり、クラウドファンディングで史上最高の2.7億円越えを達成できました。</p>
+              </div>
+            </div>
+            <blockquote class="serif text-lg lg:text-xl italic text-ink">
+              「個人プレイヤーから真のリーダーへの転換。SC®コーチングで得たのは、チームを信頼する勇気と、その先にある可能性の大きさです」
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up">
+        <div class="col-span-12 lg:col-span-3">
+          <div class="bg-white flex items-center justify-center rounded-full mx-auto lg:mx-0" style="width:80px;height:80px">
+            <span class="serif text-2xl italic text-white font-bold">T.M</span>
+          </div>
+          <div class="mt-6 text-center lg:text-left">
+            <p class="font-bold text-ink">高崎 まき</p>
+            <p class="text-xs text-muted mt-1">SC®協会 代表理事</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-9">
+          <div class="bg-paper p-8 lg:p-12 border border-accent/40 relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-ink"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-white p-5 border border-gray-100">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 block mb-3">Before</span>
+                <p class="text-sm text-muted leading-relaxed">皆にとって働きやすい環境を作りたいけれど、団体の指針と目標達成には、個々の意見をすべて拾うことは難しいと悩んでいました。</p>
+              </div>
+              <div class="bg-white p-5 border border-hl/20">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-hl block mb-3">After</span>
+                <p class="text-sm text-muted leading-relaxed">SC®コーチングをスタッフ全域に導入したら、自分の役割に誇りを持ち、意見が提案へ、そして主体的な行動へ。年商は3年で10倍を超えました。</p>
+              </div>
+            </div>
+            <blockquote class="serif text-lg lg:text-xl italic text-ink">
+              「全員の声を聞くことと、組織の目標達成は両立する。スタッフが輝くと、組織も奇跡を起こすんです」
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up">
+        <div class="col-span-12 lg:col-span-3">
+          <div class="bg-white flex items-center justify-center rounded-full mx-auto lg:mx-0" style="width:80px;height:80px">
+            <span class="serif text-2xl italic text-white font-bold">M.W</span>
+          </div>
+          <div class="mt-6 text-center lg:text-left">
+            <p class="font-bold text-ink">小黒 佐和子</p>
+            <p class="text-xs text-muted mt-1">チャンミの花工房 代表</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-9">
+          <div class="bg-paper p-8 lg:p-12 border border-accent/40 relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-ink"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-white p-5 border border-gray-100">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 block mb-3">Before</span>
+                <p class="text-sm text-muted leading-relaxed">目の前の仕事に精一杯で、未来の事業展開に不安でした。目標を立てても達成する方法が分かりませんでした。</p>
+              </div>
+              <div class="bg-white p-5 border border-hl/20">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-hl block mb-3">After</span>
+                <p class="text-sm text-muted leading-relaxed">エネルギーバランスが整うと出会う人や情報の質が格段にあがり、新商品を出しても即日完売するようになりました。</p>
+              </div>
+            </div>
+            <blockquote class="serif text-lg lg:text-xl italic text-ink">
+              「個人の意識変革が、販路の拡大やお客さまのファン化にも繋がるとは驚きでした。今は仕事が楽しくてたまりません」
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up">
+        <div class="col-span-12 lg:col-span-3">
+          <div class="bg-white flex items-center justify-center rounded-full mx-auto lg:mx-0" style="width:80px;height:80px">
+            <span class="serif text-2xl italic text-white font-bold">A.K</span>
+          </div>
+          <div class="mt-6 text-center lg:text-left">
+            <p class="font-bold text-ink">柊 アリス</p>
+            <p class="text-xs text-muted mt-1">iPro株式会社 代表取締役社長</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-9">
+          <div class="bg-paper p-8 lg:p-12 border border-accent/40 relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-ink"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-white p-5 border border-gray-100">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 block mb-3">Before</span>
+                <p class="text-sm text-muted leading-relaxed">講師業と経営の両輪で忙しい中、収益が安定せず悩んでいました。事業としての拡張や安定運用ができない状態で、誰にも相談できず未来に対して不安でした。</p>
+              </div>
+              <div class="bg-white p-5 border border-hl/20">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-hl block mb-3">After</span>
+                <p class="text-sm text-muted leading-relaxed">まずは得意とする受講生の成果創出に集中し、その他の集客の部分は自動化へ転換。コーチの伴走があれば、自分が設計した未来へ向かっていると確信が持てるようになりました。</p>
+              </div>
+            </div>
+            <blockquote class="serif text-lg lg:text-xl italic text-ink">
+              「コーチの伴走があれば、日々の経営と未来創造、両方同時に実行できます。ビジョンと原動力は必ず自分の中にあり、それを引き出してもらえます。」
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up">
+        <div class="col-span-12 lg:col-span-3">
+          <div class="bg-white flex items-center justify-center rounded-full mx-auto lg:mx-0" style="width:80px;height:80px">
+            <span class="serif text-2xl italic text-white font-bold">M.A</span>
+          </div>
+          <div class="mt-6 text-center lg:text-left">
+            <p class="font-bold text-ink">新井 恵</p>
+            <p class="text-xs text-muted mt-1">看護師</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-9">
+          <div class="bg-paper p-8 lg:p-12 border border-accent/40 relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-ink"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-white p-5 border border-gray-100">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 block mb-3">Before</span>
+                <p class="text-sm text-muted leading-relaxed">子育てと勤務のバランスに悩み、職場の仲間と仕事への不平不満ばかり話す環境にいました。</p>
+              </div>
+              <div class="bg-white p-5 border border-hl/20">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-hl block mb-3">After</span>
+                <p class="text-sm text-muted leading-relaxed">チームで気持ちを伝え認め合い、感謝の言葉が増え、助け合う意識に変わりました。自分と子どもを優先しても働ける、院内で最も人間関係の良い部署になりました。</p>
+              </div>
+            </div>
+            <blockquote class="serif text-lg lg:text-xl italic text-ink">
+              「個人の意識変革が職場全体の雰囲気を変え、働きやすさに繋がることは想像以上でした。離職が減り、退職理由も前向きに変化しています」
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up">
+        <div class="col-span-12 lg:col-span-3">
+          <div class="bg-white flex items-center justify-center rounded-full mx-auto lg:mx-0" style="width:80px;height:80px">
+            <span class="serif text-2xl italic text-white font-bold">T.N</span>
+          </div>
+          <div class="mt-6 text-center lg:text-left">
+            <p class="font-bold text-ink">滝 直子</p>
+            <p class="text-xs text-muted mt-1">飲食業</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-9">
+          <div class="bg-paper p-8 lg:p-12 border border-accent/40 relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-ink"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-white p-5 border border-gray-100">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 block mb-3">Before</span>
+                <p class="text-sm text-muted leading-relaxed">スタッフの経験値や感覚に依存した運営で、売上に貢献したいけれど、店舗判断が正しいのかも分からず不安でした。</p>
+              </div>
+              <div class="bg-white p-5 border border-hl/20">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-hl block mb-3">After</span>
+                <p class="text-sm text-muted leading-relaxed">一人ひとりの思考と感情に向き合い、人を変えず寄り添い理解するという視点を持つことで、一体感が生まれました。その結果、業務が効率化され、売上は前年比110〜120％まで向上しました。</p>
+              </div>
+            </div>
+            <blockquote class="serif text-lg lg:text-xl italic text-ink">
+              「スタッフの能力を信じてコーチングすることで、チーム力と売上がアップしました」
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up">
+        <div class="col-span-12 lg:col-span-3">
+          <div class="bg-white flex items-center justify-center rounded-full mx-auto lg:mx-0" style="width:80px;height:80px">
+            <span class="serif text-2xl italic text-white font-bold">T.T</span>
+          </div>
+          <div class="mt-6 text-center lg:text-left">
+            <p class="font-bold text-ink">田邉 弘子</p>
+            <p class="text-xs text-muted mt-1">児童教育指導員</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-9">
+          <div class="bg-paper p-8 lg:p-12 border border-accent/40 relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-ink"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-white p-5 border border-gray-100">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 block mb-3">Before</span>
+                <p class="text-sm text-muted leading-relaxed">教育の現場では、生徒と先生がうまく噛み合わず、授業が進みにくい状態が続いていました。生徒にとって、先生にとって本当に必要なものは何か、その答えが分からず、どうやって授業に一体感を持たせるべきか悩んでいました。</p>
+              </div>
+              <div class="bg-white p-5 border border-hl/20">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-hl block mb-3">After</span>
+                <p class="text-sm text-muted leading-relaxed">生徒と先生のエンゲージメントを高めるワークは、一見遠回りのようで、実は目標をスムーズに達成できることが分かりました。目に見えないエネルギーの変化に、子どもたちも先生も敏感に反応しました。</p>
+              </div>
+            </div>
+            <blockquote class="serif text-lg lg:text-xl italic text-ink">
+              「教育現場では、エンゲージメントを高めることがすべての学習の第一歩。一体感があるとき、皆が一緒に成長できます。」
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up">
+        <div class="col-span-12 lg:col-span-3">
+          <div class="bg-white flex items-center justify-center rounded-full mx-auto lg:mx-0" style="width:80px;height:80px">
+            <span class="serif text-2xl italic text-white font-bold">Y.Y</span>
+          </div>
+          <div class="mt-6 text-center lg:text-left">
+            <p class="font-bold text-ink">夢埼 叶倭</p>
+            <p class="text-xs text-muted mt-1">ラジオパーソナリティ</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-9">
+          <div class="bg-paper p-8 lg:p-12 border border-accent/40 relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-ink"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-white p-5 border border-gray-100">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 block mb-3">Before</span>
+                <p class="text-sm text-muted leading-relaxed">ラジオパーソナリティになりたての頃は、自分の声で多くの人に何かを届けるなんて、ありえないと思っていました。そもそも自分の声が好きではなく、「私なんて…」という気持ちがどこかにありました。</p>
+              </div>
+              <div class="bg-white p-5 border border-hl/20">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-hl block mb-3">After</span>
+                <p class="text-sm text-muted leading-relaxed">SC®メソッドを通して内側と向き合うようになったことで、本音や感情に気づき、無理に作らない"自分の言葉"で伝えられるようになりました。すると少しずつ反応が変わり、「声が素敵ですね」と言っていただけるように。そして週間ランキング2位を獲得することもできました。</p>
+              </div>
+            </div>
+            <blockquote class="serif text-lg lg:text-xl italic text-ink">
+              「以前は「自分には無理」と思っていた世界に、今は自然と立っています。変わったのはスキルではなく、自分の内側との向き合い方でした。自分を受け入れ、本音で伝えるようになったとき、言葉は"届けるもの"から"届くもの"へと変わります。」
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="contact" class="py-40 lg:py-72 px-4 lg:px-16 bg-paper">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-12 gap-10 lg:gap-32">
+
+      <div class="col-span-12 lg:col-span-5 anim-up">
+        <span class="lbl block mb-10">Get in Touch</span>
+        <h2 class="serif font-bold tracking-tighter mb-16" style="font-size:clamp(3rem,8vw,8rem);line-height:0.9">
+          Start your <br><em class="italic font-normal text-hl">Transformation.</em>
+        </h2>
+        <p class="text-xl text-muted font-light leading-relaxed mb-20">
+          個別面談にて、貴社の課題や目標をお聞かせください。<br>最適な導入プランと見積もりをご提案いたします。
+        </p>
+        <div class="space-y-12">
+          <div class="flex items-center gap-8 group">
+            <div class="w-16 h-16 rounded-full border border-ink/10 flex items-center justify-center group-hover:bg-ink group-hover:text-white transition-all duration-500">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-muted block mb-1">Email</span>
+              <a href="mailto:support@spiritualcoordinator.com" class="text-base font-medium hover:text-hl transition-colors">
+                support@spiritualcoordinator.com
+              </a>
+            </div>
+          </div>
+          <div class="flex items-center gap-8 group">
+            <div class="w-16 h-16 rounded-full border border-ink/10 flex items-center justify-center group-hover:bg-ink group-hover:text-white transition-all duration-500">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.17h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-muted block mb-1">Phone</span>
+              <a href="tel:07076568811" class="text-base font-medium hover:text-hl transition-colors">070-7656-8811</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-8">
+            <div class="w-16 h-16 rounded-full border border-ink/10 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-muted block mb-1">Office</span>
+              <span class="text-base font-medium">東京都港区南青山 4-5-26</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-12 lg:col-span-7 anim-up d1">
+        <div class="bg-white p-8 lg:p-24 shadow-2xl relative">
+          <div class="absolute top-0 left-0 w-full h-2 bg-hl"></div>
+          <div class="mb-12 lg:mb-16">
+            <span class="lbl block mb-4 lg:mb-6">Special Offer</span>
+            <h4 class="serif text-2xl lg:text-3xl italic">説明会参加特典</h4>
+            <p class="text-base text-muted mt-4 font-light leading-relaxed">
+              SC®コーチング初回鑑定（5.5万円分）を1回
+              <span class="text-hl font-bold">無料</span>でプレゼント。
+              あなたの潜在能力を可視化する貴重な機会です。
+            </p>
+          </div>
+
+          <form id="cform" class="space-y-10" onsubmit="handleSend(event)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <input type="text" placeholder="お名前 (NAME)" required
+                class="w-full bg-transparent border-b border-ink/10 py-6 text-sm outline-none placeholder:text-muted/40 focus:border-hl transition-colors"/>
+              <input type="email" placeholder="メールアドレス (EMAIL)" required
+                class="w-full bg-transparent border-b border-ink/10 py-6 text-sm outline-none placeholder:text-muted/40 focus:border-hl transition-colors"/>
+            </div>
+            <input type="text" placeholder="会社名 (COMPANY)"
+              class="w-full bg-transparent border-b border-ink/10 py-6 text-sm outline-none placeholder:text-muted/40 focus:border-hl transition-colors"/>
+            <textarea placeholder="お問い合わせ内容 (MESSAGE)" rows="4"
+              class="w-full bg-transparent border-b border-ink/10 py-6 text-sm outline-none resize-none placeholder:text-muted/40 focus:border-hl transition-colors"></textarea>
+            <button type="submit"
+              class="w-full bg-ink text-white py-8 text-[11px] uppercase tracking-[0.5em] font-bold hover:bg-hl transition-all duration-700 shadow-xl">
+              Send Request
+            </button>
+            <p id="thanks" class="text-center text-sm text-hl hidden">送信しました。ありがとうございます。</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="py-20 px-4 lg:px-12 bg-white border-t border-gray-50">
+  <div class="max-w-[1440px] mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10">
+    <div>
+      <span class="serif text-xl font-bold tracking-tighter uppercase block mb-2">SC® Coaching</span>
+      <p class="text-[10px] text-gray-400 tracking-widest">© 2026 一般社団法人スピリチュアルコーディネーター協会</p>
+    </div>
+    <div class="flex flex-wrap gap-x-10 gap-y-4">
+      <a href="#" class="text-[10px] uppercase tracking-widest font-bold text-gray-400 hover:text-ink transition-colors">Privacy Policy</a>
+      <a href="#" class="text-[10px] uppercase tracking-widest font-bold text-gray-400 hover:text-ink transition-colors">Terms of Service</a>
+      <a href="https://www.spiritualcoordinator.com" target="_blank" rel="noopener"
+        class="text-[10px] uppercase tracking-widest font-bold text-gray-400 hover:text-ink transition-colors">Official Site</a>
+    </div>
+    <div class="flex items-center gap-2 text-[10px] text-gray-400 tracking-widest">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+      <span>Minami Aoyama, Minato-ku, Tokyo</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll to section
+  function goto(id){
+    const el=document.getElementById(id);
+    if(!el)return;
+    window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});
+  }
+
+  // Nav scroll effect
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',window.scrollY>50);
+  });
+
+  // Mobile menu
+  const mBtn=document.getElementById('mBtn');
+  const mob=document.getElementById('mob-menu');
+  const iOpen=document.getElementById('ico-open');
+  const iClose=document.getElementById('ico-close');
+  let mOpen=false;
+  mBtn.addEventListener('click',()=>{
+    mOpen=!mOpen;
+    mob.classList.toggle('open',mOpen);
+    iOpen.classList.toggle('hidden',mOpen);
+    iClose.classList.toggle('hidden',!mOpen);
+  });
+  function closeMenu(){
+    mOpen=false;mob.classList.remove('open');
+    iOpen.classList.remove('hidden');iClose.classList.add('hidden');
+  }
+
+  // Intersection Observer
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'-40px 0px'});
+  document.querySelectorAll('.anim-up,.anim-right').forEach(el=>io.observe(el));
+
+  // Form
+  function handleSend(e){
+    e.preventDefault();
+    const t=document.getElementById('thanks');
+    t.classList.remove('hidden');
+    e.target.reset();
+    setTimeout(()=>t.classList.add('hidden'),6000);
+  }
+</script>
+</body>
+</html>
