@@ -12,8 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body { overflow-x: clip; }
     body {
       font-family: 'Noto Serif JP', serif;
       background: #FDFBF9;
@@ -76,8 +76,8 @@
 
     /* Badge positioning - below image, right-aligned */
     #badge-box {
-      bottom: -60px;
-      right: -20px;
+      bottom: -50px;
+      right: 0px;
     }
     @media (min-width: 1024px) {
       #badge-box {
@@ -100,6 +100,7 @@
 </head>
 
 <body class="bg-paper text-ink">
+<div id="page-wrapper" style="overflow-x: hidden; width: 100%; max-width: 100vw;">
 
 <!-- ====== NAV ====== -->
 <nav id="nav" class="fixed top-0 w-full z-50 py-8 px-6 lg:px-16 transition-all duration-700">
@@ -178,7 +179,7 @@
     </div>
 
     <div class="col-span-12 lg:col-span-5 mt-12 lg:mt-0 relative anim-up in d2">
-      <div class="-mx-4 lg:mx-0 overflow-hidden bg-accent relative group shadow-2xl" style="aspect-ratio:16/10">
+      <div class="mx-0 lg:mx-0 overflow-hidden bg-accent relative group shadow-2xl" style="aspect-ratio:16/10">
         <img src="images/hero.png.png" alt="SC®コーチング ヒーロー画像"
           class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-[3000ms]"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
@@ -1036,5 +1037,6 @@
     setTimeout(()=>t.classList.add('hidden'),6000);
   }
 </script>
+</div><!-- /page-wrapper -->
 </body>
 </html>
