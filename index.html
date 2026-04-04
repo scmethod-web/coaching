@@ -74,17 +74,15 @@
     .grid-cols-12:nth-child(odd) .w-2.h-full { background-color: #121212 !important; }
     .grid-cols-12:nth-child(even) .w-2.h-full { background-color: #9E7B7B !important; }
 
-    /* Badge positioning */
+    /* Badge positioning - below image, right-aligned */
     #badge-box {
-      bottom: -40px;
-      right: 20px;
+      bottom: -60px;
+      right: -20px;
     }
     @media (min-width: 1024px) {
       #badge-box {
-        bottom: auto;
-        top: 50%;
-        right: -80px;
-        transform: translateY(-50%);
+        bottom: -70px;
+        right: -30px;
       }
     }
   </style>
@@ -191,10 +189,10 @@
       </div>
 
       <!-- Badge - positioned relative to image container -->
-      <div id="badge-box" class="absolute" style="z-index: 20; bottom: -30px; right: -40px;">
-        <div class="bg-ink text-white p-8 lg:p-12 flex flex-col justify-center items-center text-center shadow-2xl" style="aspect-ratio:1; width: 180px; height: 180px;">
-          <span class="serif text-4xl lg:text-6xl italic mb-1">2.2k</span>
-          <span class="text-[8px] uppercase tracking-[0.2em] font-bold leading-tight">Graduates<br>Worldwide</span>
+      <div id="badge-box" class="absolute" style="z-index: 20;">
+        <div class="bg-ink text-white p-6 lg:p-8 flex flex-col justify-center items-center text-center shadow-2xl" style="aspect-ratio:1; width: 140px; height: 140px;">
+          <span class="serif text-3xl lg:text-5xl italic mb-1">2.2k</span>
+          <span class="text-[7px] uppercase tracking-[0.2em] font-bold leading-tight">Graduates<br>Worldwide</span>
         </div>
       </div>
     </div>
