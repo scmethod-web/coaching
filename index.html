@@ -11,7 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { overflow-x: hidden; }
     body {
       font-family: 'Noto Serif JP', serif;
       background: #FDFBF9;
@@ -148,8 +149,8 @@
     </span>
   </div>
 
-  <div class="grid grid-cols-12 gap-8 items-start">
-    <div class="col-span-12 lg:col-span-8 z-10 anim-right in">
+  <div class="grid grid-cols-12 gap-8 items-center">
+    <div class="col-span-12 lg:col-span-7 z-10 anim-right in">
       <div class="flex items-center gap-6 mb-8 lg:mb-10">
         <div class="w-12 h-px bg-hl"></div>
         <span class="lbl">Next Generation Leadership</span>
@@ -470,7 +471,7 @@
       <div class="col-span-12 lg:col-span-6 order-1 lg:order-2 relative anim-up d1">
         <div class="w-80 h-80 lg:w-96 lg:h-96 bg-accent overflow-hidden relative shadow-2xl flex" style="aspect-ratio:1/1">
           <img src="images/miho-c3.jpg" alt="桜井美帆 SC®メソッド創始者"
-            class="w-full h-full object-cover object-center"
+            class="w-full h-full object-cover object-top"
             onerror="this.style.display='none';document.getElementById('ph').style.display='flex'" />
           <div id="ph" class="absolute inset-0 items-center justify-center text-center" style="background:#E5D9D9;display:none">
             <div class="text-hl"><p class="serif text-2xl italic mb-2">桜井美帆</p><p class="text-xs">SC®メソッド創始者</p></div>
@@ -708,7 +709,7 @@
       <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg" style="width:180px;height:180px;aspect-ratio:1/1">
-            <img src="images/oguro-voice.jpg.jpg" alt="小黒 佐和子" class="w-full h-full object-cover" />
+            <img src="images/oguro-voice.jpg.jpg" alt="小黒 佐和子" class="w-full h-full object-cover object-top" />
           </div>
           <div class="mt-6 text-center lg:text-left">
             <p class="font-bold text-ink">小黒 佐和子 様</p>
@@ -863,7 +864,7 @@
       <div class="grid grid-cols-12 gap-8 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg flex items-center justify-center" style="width:180px;height:180px;aspect-ratio:1/1">
-            <img src="images/yumesaki-voice.jpg.jpg" alt="夢埼 叶倭" class="w-full h-full object-cover object-center" />
+            <img src="images/yumesaki-voice.jpg.jpg" alt="夢埼 叶倭" class="w-full h-full object-cover object-top" />
           </div>
           <div class="mt-6 text-center lg:text-left">
             <p class="font-bold text-ink">夢埼 叶倭 様</p>
