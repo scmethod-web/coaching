@@ -14,6 +14,10 @@
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; overflow-x: clip; }
     body { overflow-x: clip; }
+    /* Mobile: force all col-span items to span 1 column (full width in grid-cols-1) */
+    @media (max-width: 1023px) {
+      [class*="col-span-"] { grid-column: span 1 !important; }
+    }
     body {
       font-family: 'Noto Serif JP', serif;
       background: #FDFBF9;
@@ -149,7 +153,7 @@
     </span>
   </div>
 
-  <div class="grid grid-cols-12 gap-0 lg:gap-8 items-center">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
     <div class="col-span-12 lg:col-span-7 z-10 anim-right in">
       <div class="flex items-center gap-6 mb-8 lg:mb-10">
         <div class="w-12 h-px bg-hl"></div>
@@ -203,7 +207,7 @@
 <!-- ====== METHOD ====== -->
 <section id="method" class="py-40 lg:py-72 px-6 lg:px-16 bg-white overflow-hidden">
   <div class="max-w-[1440px] mx-auto">
-    <div class="grid grid-cols-12 gap-0 lg:gap-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-24">
 
       <div class="col-span-12 lg:col-span-4">
         <div class="lg:sticky lg:top-40">
@@ -380,7 +384,7 @@
 <!-- ====== PROFILE ====== -->
 <section id="profile" class="py-32 lg:py-72 px-6 lg:px-16 bg-white overflow-hidden">
   <div class="max-w-[1440px] mx-auto">
-    <div class="grid grid-cols-12 gap-0 lg:gap-32 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-32 items-start">
 
       <!-- Text -->
       <div class="col-span-12 lg:col-span-6 order-2 lg:order-1 anim-up px-0 lg:px-0">
@@ -498,7 +502,7 @@
       </h2>
     </div>
 
-    <div class="grid grid-cols-12 gap-0 lg:gap-24 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-24 items-center">
       <!-- Left: Image placeholder -->
       <div class="col-span-12 lg:col-span-4 anim-up">
         <div class="relative">
@@ -644,7 +648,7 @@
 
     <!-- Testimonials grid -->
       <!-- Testimonial -->
-      <div class="grid grid-cols-12 gap-0 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-accent overflow-hidden mx-auto lg:mx-0 shadow-lg flex items-center justify-center" style="width:180px;height:180px;aspect-ratio:1/1">
             <img src="images/tsurumi-voice.jpg.jpg" alt="鶴見 まい" class="w-full h-full object-cover object-center" />
@@ -675,7 +679,7 @@
       </div>
 
       <!-- Testimonial -->
-      <div class="grid grid-cols-12 gap-0 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg" style="width:180px;height:180px;aspect-ratio:1/1">
             <img src="images/takasaki-voice.png.png" alt="高崎 まき" class="w-full h-full object-cover" />
@@ -706,7 +710,7 @@
       </div>
 
       <!-- Testimonial -->
-      <div class="grid grid-cols-12 gap-0 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg" style="width:180px;height:180px;aspect-ratio:1/1">
             <img src="images/oguro-voice.jpg.jpg" alt="小黒 佐和子" class="w-full h-full object-cover object-top" />
@@ -737,7 +741,7 @@
       </div>
 
       <!-- Testimonial -->
-      <div class="grid grid-cols-12 gap-0 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg" style="width:180px;height:180px;aspect-ratio:1/1">
             <img src="images/hiiragi-voice.jpg.jpg" alt="柊 アリス" class="w-full h-full object-cover" />
@@ -768,7 +772,7 @@
       </div>
 
       <!-- Testimonial -->
-      <div class="grid grid-cols-12 gap-0 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg" style="width:180px;height:180px;aspect-ratio:1/1">
             <img src="images/arai-voice.jpg.jpg" alt="新井 恵" class="w-full h-full object-cover" />
@@ -799,7 +803,7 @@
       </div>
 
       <!-- Testimonial -->
-      <div class="grid grid-cols-12 gap-0 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg" style="width:180px;height:180px;aspect-ratio:1/1">
             <img src="images/taki-voice.jpg.jpg" alt="滝 直子" class="w-full h-full object-cover" />
@@ -830,7 +834,7 @@
       </div>
 
       <!-- Testimonial -->
-      <div class="grid grid-cols-12 gap-0 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg" style="width:180px;height:180px;aspect-ratio:1/1">
             <img src="images/tanabe-voice.jpg.jpg" alt="田邉 弘子" class="w-full h-full object-cover" />
@@ -861,7 +865,7 @@
       </div>
 
       <!-- Testimonial -->
-      <div class="grid grid-cols-12 gap-0 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start anim-up mb-16 lg:mb-24">
         <div class="col-span-12 lg:col-span-3">
           <div class="bg-white overflow-hidden mx-auto lg:mx-0 shadow-lg flex items-center justify-center" style="width:180px;height:180px;aspect-ratio:1/1">
             <img src="images/yumesaki-voice.jpg.jpg" alt="夢埼 叶倭" class="w-full h-full object-cover object-top" />
@@ -896,7 +900,7 @@
 <!-- ====== CONTACT ====== -->
 <section id="contact" class="py-40 lg:py-72 px-6 lg:px-16 bg-paper">
   <div class="max-w-[1440px] mx-auto">
-    <div class="grid grid-cols-12 gap-0 lg:gap-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-32">
 
       <div class="col-span-12 lg:col-span-5 anim-up">
         <span class="lbl block mb-10">Get in Touch</span>
